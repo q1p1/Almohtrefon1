@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import "./styles/tailwind.css";
 import "./assets/fonts.css";
 import App from "./App.tsx";
@@ -22,7 +23,9 @@ if (import.meta.env.DEV) {
 try {
   createRoot(document.getElementById("root")!).render(
     <StrictMode>
-      <App />
+      <BrowserRouter basename="/Almohtrefon1">
+        <App />
+      </BrowserRouter>
     </StrictMode>
   );
 } catch (error) {

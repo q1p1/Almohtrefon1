@@ -2,7 +2,6 @@ import { http, HttpResponse } from "msw";
 import {
   generateMemberNumber,
   generateVolunteerId,
-  generateIncidentId,
 } from "../../utils/numbering";
 
 export type IncidentStatus =
@@ -151,7 +150,7 @@ export const handlers = [
     const { id } = params as { id: string };
     const body = (await request.json()) as { approvedBy: string };
     const incidents = getIncidents();
-    const inc = incidents.find((i) => i.id === id);
+    const inc = incidents.find((i: Incident) => i.id === id);
     if (!inc)
       return HttpResponse.json({ message: "غير موجود" }, { status: 404 });
     inc.status = "approved";
@@ -169,7 +168,7 @@ export const handlers = [
       cancelReason: string;
     };
     const incidents = getIncidents();
-    const inc = incidents.find((i) => i.id === id);
+    const inc = incidents.find((i: Incident) => i.id === id);
     if (!inc)
       return HttpResponse.json({ message: "غير موجود" }, { status: 404 });
     if (!body.cancelReason)
@@ -189,7 +188,8 @@ export const handlers = [
   http.post("/api/incidents/:id/accept", async ({ params, request }) => {
     const { id } = params as { id: string };
     const body = (await request.json()) as { volunteerId: string };
-    const inc = incidents.find((i) => i.id === id);
+    const incidents = getIncidents();
+    const inc = incidents.find((i: Incident) => i.id === id);
     if (!inc)
       return HttpResponse.json({ message: "غير موجود" }, { status: 404 });
     if (inc.assignedVolunteerId) {
@@ -203,6 +203,10 @@ export const handlers = [
     }
     inc.assignedVolunteerId = body.volunteerId;
     inc.status = "in_progress";
+
+    // حفظ في localStorage
+    localStorage.setItem("psra_incidents", JSON.stringify(incidents));
+
     return HttpResponse.json(inc);
   }),
   http.post("/api/incidents/:id/close", async ({ params, request }) => {
@@ -211,7 +215,8 @@ export const handlers = [
       volunteerId: string;
       note: string;
     };
-    const inc = incidents.find((i) => i.id === id);
+    const incidents = getIncidents();
+    const inc = incidents.find((i: Incident) => i.id === id);
     if (!inc)
       return HttpResponse.json({ message: "غير موجود" }, { status: 404 });
     if (!body.note)
@@ -221,6 +226,10 @@ export const handlers = [
       );
     inc.status = "closed";
     inc.closedAt = new Date().toISOString();
+
+    // حفظ في localStorage
+    localStorage.setItem("psra_incidents", JSON.stringify(incidents));
+
     points.push({
       id: crypto.randomUUID(),
       volunteerId: body.volunteerId,

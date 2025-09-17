@@ -222,7 +222,14 @@ export default function ControlIncidents() {
         (req: SupportRequest) => req.id === requestId
       );
       if (supportRequest) {
-        notificationService.notifySupportApproval(supportRequest, volunteerId);
+        notificationService.notifySupportApproval(
+          {
+            ...supportRequest,
+            note: supportRequest.note ?? "",
+            status: "approved" as const,
+          },
+          volunteerId
+        );
       }
 
       // تحديث البيانات فوراً - إبطال جميع الاستعلامات المتعلقة بطلبات الدعم

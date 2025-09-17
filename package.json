@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "deploy": "gh-pages -d dist",
     "tailwind:build": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/tailwind.css --watch",
     "tailwind:dev": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles/output.css --watch"
   },

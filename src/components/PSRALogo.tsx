@@ -1,5 +1,3 @@
-import React from "react";
-
 interface PSRALogoProps {
   size?: "sm" | "md" | "lg" | "xl";
   showText?: boolean;
