@@ -1,0 +1,179 @@
+:root {
+  font-family: "Tajawal", "Segoe UI", "Tahoma", "Arial", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* PSRA Dark Theme Color Scheme */
+  --psra-green: #10b981; /* Muted emerald green */
+  --psra-green-dark: #059669; /* Darker green for hover states */
+  --psra-green-light: #064e3b; /* Dark green for backgrounds */
+  --psra-green-muted: #065f46; /* Muted green for cards */
+  --psra-white: #ffffff;
+  --psra-black: #0f172a; /* Very dark blue-gray */
+  --psra-gray: #94a3b8; /* Light gray for text */
+  --psra-gray-light: #1e293b; /* Dark background */
+  --psra-gray-muted: #334155; /* Muted gray for borders */
+  --psra-gray-dark: #475569; /* Darker gray */
+  --psra-blue: #3b82f6; /* Muted blue */
+  --psra-blue-light: #1e3a8a; /* Dark blue background */
+  --psra-orange: #f97316; /* Muted orange */
+  --psra-orange-light: #9a3412; /* Dark orange background */
+  --psra-red: #ef4444; /* Muted red */
+  --psra-red-light: #991b1b; /* Dark red background */
+  --psra-purple: #8b5cf6; /* Muted purple */
+  --psra-purple-light: #6b21a8; /* Dark purple background */
+
+  color-scheme: dark;
+  color: var(--psra-gray);
+  background-color: var(--psra-gray-light);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--psra-green);
+  text-decoration: inherit;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--psra-green-dark);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  direction: rtl;
+  background-color: var(--psra-gray-light);
+  color: var(--psra-gray);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--psra-green);
+  color: var(--psra-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: var(--psra-green-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--psra-green);
+  outline-offset: 2px;
+}
+
+/* PSRA Dark Theme Custom Styles */
+.psra-container {
+  background-color: var(--psra-gray-light);
+  min-height: 100vh;
+}
+
+.psra-card {
+  background-color: var(--psra-black);
+  border-radius: 16px;
+  box-shadow:
+    0 10px 25px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--psra-gray-muted);
+  transition: all 0.3s ease;
+}
+
+.psra-card:hover {
+  box-shadow:
+    0 20px 40px -4px rgba(0, 0, 0, 0.4),
+    0 8px 16px -4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.psra-primary {
+  background-color: var(--psra-green);
+  color: var(--psra-white);
+  border: 1px solid var(--psra-green);
+}
+
+.psra-primary:hover {
+  background-color: var(--psra-green-dark);
+  border-color: var(--psra-green-dark);
+}
+
+.psra-secondary {
+  background-color: var(--psra-gray-muted);
+  color: var(--psra-gray);
+  border: 1px solid var(--psra-gray-dark);
+}
+
+.psra-secondary:hover {
+  background-color: var(--psra-gray-dark);
+  color: var(--psra-white);
+}
+
+.psra-text-primary {
+  color: var(--psra-white);
+}
+
+.psra-text-secondary {
+  color: var(--psra-gray);
+}
+
+.psra-border {
+  border-color: var(--psra-green);
+}
+
+.psra-focus:focus {
+  border-color: var(--psra-green);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  outline: none;
+}
+
+/* Additional Dark Theme Utilities */
+.psra-bg-gradient {
+  background: linear-gradient(135deg, var(--psra-gray-light) 0%, var(--psra-black) 100%);
+}
+
+.psra-glass {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.psra-accent-blue {
+  background-color: var(--psra-blue-light);
+  color: var(--psra-blue);
+  border: 1px solid var(--psra-blue);
+}
+
+.psra-accent-orange {
+  background-color: var(--psra-orange-light);
+  color: var(--psra-orange);
+  border: 1px solid var(--psra-orange);
+}
+
+.psra-accent-red {
+  background-color: var(--psra-red-light);
+  color: var(--psra-red);
+  border: 1px solid var(--psra-red);
+}
+
+.psra-accent-purple {
+  background-color: var(--psra-purple-light);
+  color: var(--psra-purple);
+  border: 1px solid var(--psra-purple);
+}
